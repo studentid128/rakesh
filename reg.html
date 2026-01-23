@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        fieldset{
+            left: 25%;
+            position: absolute;
+            height: 50%;
+            width: 50%;
+            background-color: burlywood;
+            text-align: center;
+            align-items: center;
+        }
+        legend{
+            border: solid;
+            left: auto;
+            right: auto;
+            align-items: center;
+        }table{
+            align-items: center;
+            border: solid;
+        }
+        
+    </style>
+    <script>
+        function fv(){
+            var un1=document.rf.un.value;
+            var ufn1=document.rf.ufn.value;
+            var pn1=document.rf.pn.value;
+            var dob1=document.rf.dob.value;
+            var pass1=document.rf.pass.value;
+            var cpass1=document.rf.cpass.value;
+            if(un1.length<3)
+            {
+                alert("you have to enter username with minimum 3 letters");
+                return false;
+            }
+            else if(ufn1.length<3){
+                alert("your fathername must be above 3 letters");
+                return false;
+            }
+            else if(pn1.length!=10)
+            {
+                alert("you enterned phone must have 10 numbers");
+                return false;
+            }
+            else if(pass1!=cpass1){
+                alert("conform password is incoreect plz reenter properly");
+                return false;
+            }
+            else{
+                return true;
+            }
+
+        }
+    </script>
+</head>
+<body><fieldset><legend>REG</legend>
+    <form action="login.html" name="rf" onsubmit="return fv()" >
+        <table>
+            <tr>
+                <td><label>your name </label></td>
+                <td><input type="text" name="username" required></td>
+            </tr>
+            <tr>
+                <td><label>father name</label></td>
+                <td><input type="text" name="userfathername" required></td>
+            </tr>
+            <tr>
+                <td><label>ph.no</label></td>
+                <td><input type="number" name="phonenumber" required></td>
+            </tr>
+            <tr>
+                <td><label>DOB</label></td>
+                <td><input type="date" name="dob" required></td>
+            </tr><tr>
+                <td><label>gender</label></td>
+                <td><label>male</label>
+                    <input type="radio" name="g" value="male">
+                    <label>female</label>
+                    <input type="radio" name="g" value="female">
+                    <label>transgender</label>
+                    <input type="radio" name="g" value="transgender"></td>
+            </tr><tr>
+            <td><label>email</label></td>
+               <td><input type="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td><label>password</label></td>
+                   <td> <input type="password" name="pass" required></td>
+                </tr>
+                <tr>
+                    <td><label>Conform password</label></td>
+                      <td><input type="password" name="cpass" required></td>
+                    </tr>
+                   <tr>
+                    <td><label>state</label></td>
+                      <td><select required><option>select state</option>
+
+<option>Andhra Pradesh</option>
+<option>Arunachal Pradesh</option>
+<option>Assam</option>
+<option>Bihar</option>
+<option>Chhattisgarh</option>
+<option>Goa</option>
+<option>Gujarat</option>
+<option>Haryana</option>
+<option>Himachal Pradesh</option>
+<option>Jharkhand</option>
+<option>Karnataka</option>
+<option>Kerala</option>
+<option>Madhya Pradesh</option>
+<option>Maharashtra</option>
+<option>Manipur</option>
+<option>Meghalaya</option>
+<option>Mizoram</option>
+<option>Nagaland</option>
+<option>Odisha</option>
+<option>Punjab</option>
+<option>Rajasthan</option>
+<option>Sikkim</option>
+<option>Tamil Nadu</option>
+<option>Telangana</option>
+<option>Tripura</option>
+<option>Uttar Pradesh</option>
+<option>Uttarakhand</option>
+<option>West Bengal</option></select> </td></tr>
+
+                   
+                    </tr>
+                    <tr>
+                    <td><label>Region</label></td>
+                      <td><input type="text" name="your country name" required></td>
+                    </tr>
+                    <tr>
+                    <td><label>village</label></td>
+                      <td><input type="text" name="locality/city/town" required></td>
+                    </tr>
+                    <tr>
+                           <td> <input type="submit" value="submit"></td>
+                            <td><input type="reset" name="reset"></td>
+
+                    </tr>
+                    <tr>
+                    
+                            
+        </table>
+    </form></fieldset>
+</body>
+</html>
