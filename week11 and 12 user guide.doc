@@ -1,0 +1,186 @@
+week11a
+
+python --version
+
+python -m pip install Django
+
+python -m venv csmd
+
+csmd\scripts\activate.bat
+
+
+
+week11b
+
+
+pip install Django
+
+python -m django startproject xxxxx
+
+cd xxxxx
+
+python manage.py startapp yyyyy
+
+
+open vs code
+
+xxxxx/settings.py
+
+installed-app
+
+add  'yyyyy'
+
+
+
+xxxxxx/urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('yyyyy.urls')),
+]
+
+
+in yyyyy create templates folder
+in that folder create home.html file
+
+in yyyyy create urls.py file
+
+
+yyyyy/urls.py
+
+
+from django.urls import path
+from . import views
+
+urlpatterns=[
+    path('', views.home, name='home'),
+    path('home/', views.home, name='home'),
+    
+] 
+
+
+
+yyyyy/views.py
+
+from django.shortcuts import render
+
+# Create your views here.
+def home(request):
+    return render(request, 'home.html')
+
+
+
+home.html
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <nav class="navbar nav navbar-expand-md bg-light">
+        <a class="navbar-brand nav-link" href="#">
+            CMRIT</a>
+    <ul class="collapse navbar-collapse navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link " href="#">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Register</a>
+    </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Profile</a>
+    </li>
+    </ul>
+    </nav>
+</body>
+</html>
+
+
+run application
+
+
+python manage.py runserver
+
+
+
+
+week12
+
+
+pip install Django
+
+python -m django startproject xxxxx
+
+cd xxxxx
+
+python manage.py startapp yyyyy
+
+pip install Djangorestframework
+
+
+
+
+open vs code
+
+xxxxx/settings.py
+
+installed-app
+
+add  'yyyyy',
+        'rest_framework',
+
+
+
+
+
+
+
+yyyyy/admin.py
+
+from django.contrib import admin
+from .models import StudentModel
+
+admin.site.register(StudentModel)
+
+
+yyyyy/models.py
+
+from django.db import models
+class StudentModel(models.Model):
+    name=models.CharField(max_length=50)
+    dept=models.CharField(max_length=50)
+    roll=models.IntegerField()
+
+    def __str__(self):
+        return self.name
+# Create your models here.
+
+
+
+
+
+run application
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+
